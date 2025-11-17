@@ -21,6 +21,6 @@ WORKDIR /app
 COPY --from=builder /app/.venv /app/.venv
 COPY . /app
 
-CMD gunicorn library_app:app -w $(nproc)
+CMD gunicorn library_app:app -w $(nproc) -b [::]
 
 LABEL org.opencontainers.image.authors="me@soopy.moe"
