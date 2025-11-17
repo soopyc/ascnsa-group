@@ -1,9 +1,3 @@
-from flask import Flask
+from library_app import app
 
-app = Flask("library_app")
-
-@app.route("/")
-def root():
-	raise Exception("meow")
-
-# TODO: make it routable with like a router thing or something
+_ = app
