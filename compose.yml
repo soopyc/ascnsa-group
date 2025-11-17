@@ -4,13 +4,16 @@ services:
     volumes:
       - db-data:/var/lib/mysql
     environment:
+      MARIADB_DATABASE: library_app
       MARIADB_USER: user
       MARIADB_PASSWORD: userresu
       MARIADB_RANDOM_ROOT_PASSWORD: true
-    ports:
-      - 8000:8000
+    # ports:
+      # - 8000:8000
   app:
     build: .
+    ports:
+      - 8000:8000
 
 volumes:
   db-data:
