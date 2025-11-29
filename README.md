@@ -19,9 +19,9 @@ $ pdm run flask run
 
 ## Setup Database
 
-Please refer to [Guide To Setup Database.md](https://github.com/soopyc/ascnsa-group/docs/Guide To Setup Database.md).
+Please refer to [Guide To Setup Database.md](docs/Guide%20To%20Setup%20Database.md).
 
-You may also find the guide in `docs`.
+You may find the guide in `docs`.
 
 ## licensing
 
