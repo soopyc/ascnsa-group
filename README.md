@@ -16,14 +16,12 @@ $ pdm install
 $ pdm run flask run
 ```
 
-## deployment
 
-we use docker (compose) to deploy the app.
+## Setup Database
 
-```sh
-$ docker compose build
-$ docker compose up -d
-```
+Please refer to [Guide To Setup Database.md](https://github.com/soopyc/ascnsa-group/docs/Guide To Setup Database.md).
+
+You may also find the guide in `docs`.
 
 ## licensing
 
