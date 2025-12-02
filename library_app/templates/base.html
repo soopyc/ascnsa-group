@@ -11,8 +11,11 @@
 		<!-- TODO: add navbar here. also turn the stupid ai agent off -->
 		<div class="content">
 			{% block body %}
-				<p>nobody here except us chickens!</p>
+				<p class="fatal-error">BUG: missing body block in template.</p>
 			{% endblock %}
 		</div>
+
+		<hr />
+		<p><i>Page rendered in {{ processing_ms }}ms.</i></p>
 	</body>
 </html>
