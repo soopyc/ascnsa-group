@@ -1,8 +1,8 @@
 from flask import Blueprint
 
-blueprint = Blueprint("books", __name__)
+blueprint = Blueprint("loans", __name__)
 
 
-@blueprint.route("/books")
+@blueprint.route("/loans")
 def handle():
 	raise NotImplementedError()

@@ -19,3 +19,8 @@ distribution = false
 
 [tool.ruff.format]
 indent-style = "tab"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.7",
+]
