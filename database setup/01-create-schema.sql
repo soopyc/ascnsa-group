@@ -3,6 +3,9 @@
 -- This script creates all the necessary tables, sets up primary and foreign keys,
 -- and applies constraints to ensure data integrity.
 
+CREATE DATABASE IF NOT EXISTS `library_app`;
+USE `library_app`;
+
 -- To make the script runnable multiple times, we drop existing tables first.
 -- The order is important due to foreign key constraints (drop dependent tables first).
 DROP TABLE IF EXISTS `Loans`;
@@ -91,3 +94,5 @@ CREATE TABLE `Loans` (
 -- =================================================================================
 -- End of Script
 -- =================================================================================
+
+

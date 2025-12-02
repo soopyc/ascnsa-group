@@ -1,5 +1,5 @@
 -- =================================================================================
--- SQL DML Script for the Library Management System (CORRECTED Comprehensive Test Data)
+-- SQL DML Script for the Library Management System (Comprehensive Test Data)
 -- =================================================================================
 
 -- Select the correct database
@@ -36,7 +36,6 @@ INSERT INTO `Books` (`title`, `isbn`, `publication_year`, `book_type`, `genre`, 
 ('The Hobbit', '9780618260300', 1937, 'Novel', 'Fantasy', NULL, 'available'),
 ('The C Programming Language', '9780131103627', 1988, 'Textbook', NULL, 'Programming', 'on_loan'),
 ('Computer Networks', '9780132126953', 2010, 'Textbook', NULL, 'Computer Science', 'available'),
--- THIS IS THE CORRECTED LINE:
 ('Harry Potter and the Sorcerer''s Stone', '9780590353427', 1997, 'Novel', 'Fantasy', NULL, 'available');
 
 
@@ -73,3 +72,5 @@ INSERT INTO `Loans` (`book_id`, `borrower_id`, `loan_date`, `due_date`, `return_
 -- =================================================================================
 -- End of Script
 -- =================================================================================
+
+
