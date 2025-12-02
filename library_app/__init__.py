@@ -1,8 +1,6 @@
-from ._app import app
+from flask import Flask
 
-from . import root
+from . import routes
 
-# make type checkers happy, don't touch these
-_ = (
-	app, root
-)
+app = Flask(__name__)
+routes.register_routes(app)
