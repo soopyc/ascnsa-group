@@ -3,6 +3,7 @@ services:
     image: mariadb:12
     volumes:
       - db-data:/var/lib/mysql
+      - "./database setup:/docker-entrypoint-initdb.d:ro"
     environment:
       MARIADB_DATABASE: library_app
       MARIADB_USER: user
