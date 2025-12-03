@@ -9,8 +9,8 @@ services:
       MARIADB_USER: user
       MARIADB_PASSWORD: userresu
       MARIADB_RANDOM_ROOT_PASSWORD: true
-    # ports:
-      # - 8000:8000
+    ports:
+       - "3306:3306"
   app:
     build: .
     ports:

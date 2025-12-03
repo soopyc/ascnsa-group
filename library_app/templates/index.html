@@ -1,9 +1,19 @@
+
 {% extends "base.html" %}
 {% block body %}
-	<h1>Welcome to Library System</h1>
-	<ul>
-		<li><a href="/books">Manage Books</a></li>
-		<li><a href="/borrowers">Manage Borrowers</a></li>
-		<li><a href="/loans">Manage Loans</a></li>
-	</ul>
+<div class="container mt-5">
+	<h1>Library System</h1>
+
+	<div class="row mt-4">
+		<div class="col-md-4">
+			<a href="/books" class="btn btn-primary btn-lg w-100 mb-3">Manage Books</a>
+		</div>
+		<div class="col-md-4">
+			<a href="/borrowers" class="btn btn-success btn-lg w-100 mb-3">Manage Borrowers</a>
+		</div>
+		<div class="col-md-4">
+			<a href="/loans" class="btn btn-warning btn-lg w-100 mb-3">Manage Loans</a>
+		</div>
+	</div>
+</div>
 {% endblock %}
