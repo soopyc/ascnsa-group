@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Library Management System{% endblock %}
+
+{% block extra_css %}
+<style>
+	 .section {
+       			background: linear-gradient(#667eea 0%);
+       			color: white;
+        		padding: 60px 0;
+        		text-align: center;
+        		border-radius: 10px;
+        		margin-bottom: 10px;
+    		}
+    
+    		.title {
+        		font-size: 7ch;
+        		margin-bottom: 20px;
+    		}
+    
+   			.subtitle {
+       			font-size: x-large;
+       			margin-bottom: 30px;
+        		opacity: 80%;
+
+    		}
+			.header{
+				font-size: 3ch;
+				margin-top: 5px;
+				margin-bottom: 0px;
+			}
+			.curtain{
+				background-color: rgb(233, 241, 242);
+				padding: 10px 0;
+				text-align: left;
+        		border-radius: 10px;
+				margin-bottom: 5px;
+			}
+			.content{
+				font-size: 3ch;
+				margin-top: 0px;
+				margin-bottom: 5px;
+				
+			}
+</style>
+{% endblock %}
+{% block body %}
+			<section class="section">
+    				<h1 class="title">Welcome to library management system!</h1>
+    				<h2 class="subtitle">Tools for handling library operations</h2>
+    
+			</section>
+			<div class="curtain">
+				<h3 class="header">Hello, system administrator</h3>
+				<p class="content">Lets use the navbar to explore the functions. </p>
+			</div>
+
+
+			<div>
+				<h3 class="header">What functions we support</h3>
+				<p class="content">Creating a new book or borrower.</p>
+    -   		<p class="content">Reading book or loan details .</p>
+    -   		<p class="content">Updating book availability or loan status.</p>			
+    -   		<p class="content">Deleting a loan record. </p>			
+			</div>
+		
+			
+			
+
+
+{% endblock %}
