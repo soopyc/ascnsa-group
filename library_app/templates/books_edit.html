@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container mt-5">
+	<h1>Add New Book</h1>
+
+	{% if error %}
+	<div class="alert alert-danger">{{ error }}</div>
+	{% endif %}
+
+	<form method="POST">
+		<div class="mb-3">
+			<label>Title *</label>
+			<input type="text" name="title" value="{{ book.title }}" class="form-control" required>
+		</div>
+
+		<div class="mb-3">
+			<label>ISBN *</label>
+			<input type="text" name="isbn" value="{{ book.isbn }}" class="form-control" required>
+		</div>
+		<div class="mb-3">
+			<label>Type *</label>
+			<input type="text" name="book_type" value="{{ book.book_type }}" class="form-control" required>
+		</div>
+		<div class="mb-3">
+			<label>Author Name *</label>
+			<input type="text" name="author_name" value="{{ book.author_name }}" class="form-control" required
+				   placeholder="e.g. J.K. Rowling">
+		</div>
+
+
+		<button type="submit" class="btn btn-primary me-2">Update Book</button>
+		<a href="{{ url_for('books.books_list') }}" class="btn btn-secondary">Cancel</a>
+	</form>
+</div>
+
+{% endblock %}

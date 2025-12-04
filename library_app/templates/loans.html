@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %} loans{% endblock %}
+{% block extra_css %}
+<style>
+	 .action-cell {
+        min-width: 150px;
+    }
+	
+</style>
+{% endblock %}
+
+{% block body %}
+	<!--search box-->
+<div class="container">
+    <h1>Records of Loans</h1>
+	<div class="search-box">
+    <form action="/loans" method="GET" class="search-form">
+        <input type="text" 
+               name="search" 
+               placeholder="Search by loan ID, book ID, borrower ID" 
+               class="search-input"
+               value="{{ search if search else '' }}">
+        <button type="submit" class="search-btn">Search</button>
+        
+       
+    </form>
+</div>
+	<table border = "2";>
+        <thead> <!--display the attribubes of table-->
+            <tr style="background-color: #b9b8b8"> 
+                <th style="padding: 20px;">loan_id</th>
+				<th style="padding: 20px;">book_id</th>
+				<th style="padding: 20px;">borrower_id</th>
+				<th style="padding: 20px;">loan_date</th>
+				<th style="padding: 20px;">due_date</th>
+				<th style="padding: 20px;">return_date</th>
+				 <th style="padding: 20px;">Actions</th>  <!--  Actions column -->
+        </tr>
+				
+			</thead>
+{% for loan in loans %}
+		<tbody>
+			<tr>	<!--display all the records-->
+				<td style="padding: 20px;">{{ loan.loan_id }}</td>
+				<td style="padding: 20px;">{{ loan.book_id }}</td>
+				<td style="padding: 20px;">{{ loan.borrower_id }}</td>
+				<td style="padding: 20px;">{{ loan.loan_date }}</td>
+				<td style="padding: 20px;">{{ loan.due_date }}</td>
+				<td style="padding: 20px;"> {% if loan.return_date %}
+                    {{ loan.return_date }}
+                {% else %}
+                    <span >Not Returned</span>
+                {% endif %}
+            </td>
+            <td class="action-cell">
+		
+    				
+				
+                <!-- delete button and edit button-->
+                <a href="{{ url_for('loans.edit_loan', loan_id=loan.loan_id) }}" 
+                   >Edit</a>
+                
+                
+                <a href="{{ url_for('loans.confirm_delete', loan_id=loan.loan_id) }}" 
+                  >Delete</a>
+            </td>
+
+				
+		 		
+					
+				
+				
+			</tr>
+			{% endfor %}
+		</tbody>
+
+            
+          
+      
+    </table>        
+                    
+                   
+              
+					<div>
+						<!--Create new loan  button-->
+    					<a href="{{ url_for('loans.create_loans') }}" >Add New Loan</a>
+						<!-- home button -->
+    					<a href="/">Home Page</a>
+					</div>
+
+    		
+    			
+        
+    </div>
+</div>
+</div>
+{% endblock %}
+
+
+
+    
+   

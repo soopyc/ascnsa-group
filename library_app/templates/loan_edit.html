@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Loan #{{ loan.loan_id }}{% endblock %}
+
+{% block body %}
+<div style="max-width: 800px; margin: 0 auto;">
+    <h1>Edit Loan Record #{{ loan.loan_id }}</h1>
+    
+	<!--build up a edit table -->
+    <form action="/loans/{{ loan.loan_id }}/update" method="POST">
+        <table border="1" style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+            <tr>
+				<!--show the attribute-->
+                <td style="padding: 10px; background: #f5f5f5;"><strong>Loan ID:</strong></td>
+                <td style="padding: 10px;">{{ loan.loan_id }}</td>
+            </tr>
+            <tr>
+				<!--show the attribute-->
+                <td style="padding: 10px; background: #f5f5f5;"><strong>Book ID:</strong></td>
+				<!--get input value of book_id-->
+                <td style="padding: 10px;">
+                    <input type="number" name="book_id" value="{{ loan.book_id }}" 
+                           style="width: 100%; padding: 8px; box-sizing: border-box;" required>
+                </td>
+            </tr>
+            <tr>
+				<!--show the attribute-->
+                <td style="padding: 10px; background: #f5f5f5;"><strong>Borrower ID:</strong></td>
+                <td style="padding: 10px;">
+				<!--get input value of borrow_id-->
+                    <input type="number" name="borrower_id" value="{{ loan.borrower_id }}" 
+                           style="width: 100%; padding: 8px; box-sizing: border-box;" required>
+                </td>
+            </tr>
+            <tr>
+				<!--show the attribute-->
+                <td style="padding: 10px; background: #f5f5f5;"><strong>Loan Date:</strong></td>
+                <td style="padding: 10px;">
+				<!--get input value of loan_date-->
+                    <input type="date" name="loan_date" value="{{ loan.loan_date }}" 
+                           style="width: 100%; padding: 8px; box-sizing: border-box;" required>
+                </td>
+            </tr>
+            <tr>
+				<!--show the attribute-->
+                <td style="padding: 10px; background: #f5f5f5;"><strong>Due Date:</strong></td>
+                <td style="padding: 10px;">
+					<!--get input value of due_date-->
+                    <input type="date" name="due_date" value="{{ loan.due_date }}" 
+                           style="width: 100%; padding: 8px; box-sizing: border-box;" required>
+                </td>
+            </tr>
+            <tr>
+				<!--show the attribute-->
+                <td style="padding: 10px; background: #f5f5f5;"><strong>Return Date:</strong></td>
+                <td style="padding: 10px;">
+					<!--get input value of return_date-->
+                    <input type="date" name="return_date" 
+                           value="{{ loan.return_date if loan.return_date else '' }}" 
+                           style="width: 100%; padding: 8px; box-sizing: border-box;">
+						   <!-- small guide-->
+                    <small>(Leave empty if not returned)</small>
+                </td>
+            </tr>
+        </table>
+        
+
+		<!--button design-->
+        <div>
+            <button type="submit" 
+                    style="background: green; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">
+                Save Changes
+            </button>
+            
+            <a href="/loans" 
+               style="margin-left: 10px; padding: 10px 20px; background: gray; color: white; text-decoration: none; border-radius: 4px;">
+                Cancel
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

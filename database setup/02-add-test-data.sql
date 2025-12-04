@@ -57,7 +57,8 @@ INSERT INTO `Book_Authors` (`book_id`, `author_id`) VALUES
 -- =================================================================================
 INSERT INTO `Borrowers` (`first_name`, `last_name`, `email`, `registration_date`) VALUES
 ('Alice', 'Wonderland', 'alice.w@example.com', '2023-01-10'),
-('Bob', 'Builder', 'bob.b@example.com', '2023-02-20');
+('Bob', 'Builder', 'bob.b@example.com', '2023-02-20'),
+('Tim', 'Mak', 'tmak0244@gmail.com', '2025-12-05');
 
 
 -- =================================================================================

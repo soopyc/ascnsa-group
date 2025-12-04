@@ -1,9 +1,94 @@
 {% extends "base.html" %}
+
+{% block title %}Home - Library Management System{% endblock %}
+
+{% block extra_css %}
+<style>
+	.section {
+		background: linear-gradient(#667eea 0%);
+		color: white;
+		padding: 60px 20px;
+		text-align: center;
+		border-radius: 10px;
+		margin: 0 auto 20px;
+		max-width: 800px;
+		width: 90%;
+	}
+
+	.title {
+		font-size: clamp(2rem, 5vw, 3.5rem);
+		margin-bottom: 20px;
+		font-weight: bold;
+	}
+
+	.subtitle {
+		font-size: clamp(1.2rem, 3vw, 1.8rem);
+		margin-bottom: 30px;
+		opacity: 0.8;
+	}
+
+	.header {
+		font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+		margin-top: 10px;
+		margin-bottom: 8px;
+		font-weight: 600;
+	}
+
+	.curtain {
+		background-color: rgb(233, 241, 242);
+		padding: 20px;
+		text-align: left;
+		border-radius: 10px;
+		margin: 0 auto 15px;
+		max-width: 800px;
+		width: 90%;
+	}
+
+	.content {
+		font-size: clamp(1rem, 2vw, 1.1rem);
+		margin: 5px 0;
+		line-height: 1.6;
+		
+	}
+
+	/* Center features section */
+	.features {
+		max-width: 800px;
+		margin: 0 auto 20px;
+		width: 90%;
+		padding: 0 20px;
+	}
+
+		/* Fix list styling */
+		.features p {
+			margin: 8px 0;
+		}
+
+			.features p:not(:first-child):before {
+				content: "• ";
+				color: #667eea;
+				font-weight: bold;
+				margin-right: 8px;
+			}
+</style>
+{% endblock %}
+
 {% block body %}
-	<h1>Welcome to Library System</h1>
-	<ul>
-		<li><a href="/books">Manage Books</a></li>
-		<li><a href="/borrowers">Manage Borrowers</a></li>
-		<li><a href="/loans">Manage Loans</a></li>
-	</ul>
+<section class="section">
+	<h1 class="title">Welcome to Library Management System!</h1>
+	<h2 class="subtitle">Tools for handling library operations</h2>
+</section>
+
+<div class="curtain">
+	<h3 class="header">Hello, system administrator</h3>
+	<p class="content">Let's use the navbar to explore the functions.</p>
+</div>
+
+<div class="features">
+	<h3 class="header">What functions we support</h3>
+	<p class="content">Creating a new book or borrower.</p>
+	<p class="content">Reading book or loan details.</p>
+	<p class="content">Updating book availability or loan status.</p>
+	<p class="content">Deleting a loan record.</p>
+</div>
 {% endblock %}

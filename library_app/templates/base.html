@@ -1,21 +1,118 @@
 <!doctype html>
 <!-- see https://github.com/soopyc/ascnsa-group/tree/ast20401 for source. -->
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/static/app.css" />
-		{% block head %}{% endblock %}
-	</head>
-	<body>
-		<!-- TODO: add navbar here. also turn the stupid ai agent off -->
-		<div class="content">
-			{% block body %}
-				<p class="fatal-error">BUG: missing body block in template.</p>
-			{% endblock %}
-		</div>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="/static/app.css" />
+	<title>{% block title %}Library Management System{% endblock %}</title>
+	<style>
 
-		<hr />
-		<p><i>Page rendered in {{ processing_ms }}ms.</i></p>
-	</body>
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 20px;
+		}
+
+		.nav {
+			height: 40px;
+			background: rgba(13, 92, 238, 0.763);
+			/*give a shadow*/
+			box-shadow: 0 1px 2px #666;
+			margin-top: 20px;
+		}
+
+		* { /*margin and padding are zero*/
+			margin: 0;
+			padding: 0;
+			text-decoration: none;
+			list-style: none;
+		}
+
+		.btli { /*horizontal display*/
+			float: left;
+			width: 100px;
+			line-height: 40px;
+			/*Alignment: Horizontal Center*/
+			text-align: center;
+		}
+
+		.navlist a {
+			/*superlink colour is black*/
+			color: #0d0d0d;
+			/*Let it appear in block*/
+			display: block;
+		}
+			/*Background changes color when mouse hovers over it*/
+			.navlist a:hover {
+				background: #666;
+			}
+
+		.droplist {
+			background-color: #727070;
+			box-shadow: 0 1px 2px;
+		}
+
+		.btli:hover .droplist {
+			display: block;
+		}
+		/*background image setup*/
+		.photo_box {
+			width: 200px;
+			height: 200px;
+			border: solid 5px #140218;
+			background-image: url('');
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 300px 300px;
+		}
+		.content {
+			padding-top: 60px;
+		}
+	</style>
+	{% block extra_css %}
+	{% endblock %}
+</head>
+<body>
+	<!-- TODO: add navbar here. also turn the stupid ai agent off -->
+
+
+
+
+	<div class="container">
+
+		<!--navbar-->
+		<ul class="navlist">
+			<li class="btli"><a href="/"> HOME</a></li>
+			<li class="btli"><a href="/books"> BOOKS</a></li><!--Read book details and create books-->
+			<li class="btli"><a href="/borrowers">BORROWERS </a></li><!--Create borrowers-->
+			<li class="btli"><a href="/loans"> LOANS</a></li><!--Read,delete loans details and update loans status-->
+
+
+		</ul>
+		<div>
+			<a href="/search"></a>
+			<a href="/settings"></a>
+
+			<!-- turn off ai agent -->
+
+		</div>
+	</div>
+
+
+
+
+	<div class="content">
+		{% block body %}
+		<!--<p class="fatal-error">BUG: missing body block in template.</p>-->
+		{% endblock %}
+	</div>
+
+
+	<hr />
+	<p><i>Page rendered in {{ processing_ms }}ms.</i></p>
+
+
+
+</body>
 </html>
