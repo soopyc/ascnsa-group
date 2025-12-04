@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {% if borrower %}Edit Borrower{% else %}Add Borrower{% endif %}
+{% endblock %}
+
+{% block body %}
+<h2>{% if borrower %}Edit{% else %}Add{% endif %} Borrower</h2>
+
+<form method="post" action="{% if borrower %}
+    {{ url_for('borrowers.update_borrower', borrower_id=borrower.borrower_id) }}
+  {% else %}
+    {{ url_for('borrowers.create_borrower') }}
+  {% endif %}">
+	<label>First Name:</label>
+	<input type="text" name="first_name" value="{{ borrower.first_name if borrower else '' }}" required><br><br>
+
+	<label>Last Name:</label>
+	<input type="text" name="last_name" value="{{ borrower.last_name if borrower else '' }}" required><br><br>
+
+	<label>Email:</label>
+	<input type="email" name="email" value="{{ borrower.email if borrower else '' }}" required><br><br>
+
+	<button type="submit">{% if borrower %}Update{% else %}Create{% endif %}</button>
+</form>
+{% endblock %}

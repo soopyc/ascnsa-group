@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:a04c662babafa83889b604e2ed206e94206857a7c8ca73ef40572eac9cdefbd6"
+content_hash = "sha256:8237eb69ac85be235d1c6b9724ea533229cd49b0e58346857ea7860613f4b869"
 
 [[metadata.targets]]
 requires_python = "==3.12.*"
@@ -153,6 +153,17 @@ groups = ["default"]
 files = [
     {file = "packaging-25.0-py3-none-any.whl", hash = "sha256:29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484"},
     {file = "packaging-25.0.tar.gz", hash = "sha256:d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"},
+]
+
+[[package]]
+name = "pymysql"
+version = "1.1.2"
+requires_python = ">=3.8"
+summary = "Pure Python MySQL Driver"
+groups = ["default"]
+files = [
+    {file = "pymysql-1.1.2-py3-none-any.whl", hash = "sha256:e6b1d89711dd51f8f74b1631fe08f039e7d76cf67a42a323d3178f0f25762ed9"},
+    {file = "pymysql-1.1.2.tar.gz", hash = "sha256:4961d3e165614ae65014e361811a724e2044ad3ea3739de9903ae7c21f539f03"},
 ]
 
 [[package]]

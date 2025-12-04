@@ -7,6 +7,6 @@
     "\\library_app\\routes",
     "\\library_app\\templates"
   ],
-  "SelectedNode": "\\library_app\\templates\\index.html",
+  "SelectedNode": "\\library_app\\routes\\borrowers.py",
   "PreviewInSolutionExplorer": false
 }
