@@ -1,3 +1,5 @@
+alias lint := check
+
 dev:
 	pdm run flask run --debug
 
