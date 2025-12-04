@@ -17,6 +17,9 @@ license = {text = "MIT"}
 [tool.pdm]
 distribution = false
 
+[tool.pyright]
+reportUnsupportedDunderAll = false
+
 [tool.ruff.format]
 indent-style = "tab"
 
