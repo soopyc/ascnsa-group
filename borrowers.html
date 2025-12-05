@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Borrowers{% endblock %}
+
+{% block body %}
+<h1>Borrowers</h1>
+
+
+<style>
+	.action-cell {
+		min-width: 150px;
+	}
+
+	table * {
+		padding: 20px;
+		text-align: center;
+		
+	}
+
+	table td, table th {
+		border: 2px solid black;
+
+	}
+
+	table {
+		margin-top: 30px;
+		margin-bottom: 5px;
+		border: 2px solid black;
+		border-collapse: collapse;
+		margin-top: 10px;
+	}
+
+	.search-form {
+		margin-bottom: 10px
+	}
+
+	.search-input {
+		padding: 5px 20px;
+		font-size: 0.3em;
+		min-width: 220px;
+		margin-right: 10px;
+		margin-top: 10px;
+	}
+
+	.search-btn {
+		padding: 5px 10px;
+		border-radius: 5px;
+		border: none;
+		background-color: rgb(0, 191, 255);
+		color: white;
+	}
+
+		.search-btn:hover {
+			cursor: pointer;
+			background-color: rgba(0, 191, 255, 0.8);
+		}
+
+		.search-btn:active {
+			cursor: pointer;
+			background-color: rgba(0, 191, 255, 0.6);
+		}
+
+	.search-btn {
+		background-color: rgba(0, 191, 255);
+	}
+
+	.add-loan:hover {
+		text-decoration: underline;
+	}
+</style>
+<div class=""search-box"">
+	<form class="search-form" method="get" action="{{ url_for('borrowers.list_borrowers') }}">
+		<input type="text"class="search-input" name="q" value="{{ q }}" placeholder="Search borrowers..." />
+		<button type="submit"class="search-btn">Search</button>
+	</form>
+</div>
+<a href="{{ url_for('borrowers.new_borrower_form') }}" >Add New Borrower</a>
+
+<table border="1" >
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Registered</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for b in borrowers %}
+		<tr>
+			<td>{{ b.borrower_id }}</td>
+			<td>{{ b.first_name }} {{ b.last_name }}</td>
+			<td class="email-cell">{{ b.email }}</td>
+			<td class="registered-cell">{{ b.registration_date }}</td>
+			<td>
+				<a href="{{ url_for('borrowers.edit_borrower_form', borrower_id=b.borrower_id) }}">Edit</a>
+				<form method="post" action="{{ url_for('borrowers.delete_borrower', borrower_id=b.borrower_id) }}" style="display:inline;">
+					<button type="submit">Delete</button>
+				</form>
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

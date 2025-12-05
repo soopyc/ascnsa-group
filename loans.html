@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %} loans{% endblock %}
+{% block extra_css %}
+<style>
+	.action-cell {
+		min-width: 150px;
+	}
+
+	table * {
+		padding: 20px;
+		text-align: center;
+	}
+
+	table td, table th {
+		border: 2px solid black;
+	}
+
+	table {
+		margin-top: 30px;
+		margin-bottom: 5px;
+		border: 2px solid black;
+		border-collapse: collapse;
+	}
+
+	.search-form {
+		margin-bottom: 10px
+	}
+
+	.search-input {
+		padding: 5px 20px;
+		font-size: 0.3em;
+		min-width: 220px;
+		margin-right: 10px;
+	}
+
+	.search-btn {
+		padding: 5px 10px;
+		border-radius: 5px;
+		border: none;
+		background-color: rgb(0, 191, 255);
+		color: white;
+	}
+
+		.search-btn:hover {
+			cursor: pointer;
+			background-color: rgba(0, 191, 255, 0.8);
+		}
+
+		.search-btn:active {
+			cursor: pointer;
+			background-color: rgba(0, 191, 255, 0.6);
+		}
+
+	.search-btn {
+		background-color: rgba(0, 191, 255);
+	}
+
+	.add-loan:hover {
+		text-decoration: underline;
+	}
+</style>
+{% endblock %}
+
+{% block body %}
+<!--search box-->
+<div class="container">
+	<h1 style="margin-bottom: 10px;">Records of Loans</h1>
+	<div class="search-box">
+		<form action="/loans" method="GET" class="search-form">
+			<input type="text"
+				   name="search"
+				   placeholder="Search by loan ID, book ID, borrower ID"
+				   class="search-input"
+				   value="{{ search if search else '' }}">
+			<button type="submit" class="search-btn">Search</button>
+
+
+		</form>
+	</div>
+	<table>
+		<thead>
+			<!--display the attribubes of table-->
+			<tr style="background-color: #b9b8b8">
+				<th ">loan_id</th>
+				<th ">book_id</th>
+				<th ">borrower_id</th>
+				<th ">loan_date</th>
+				<th ">due_date</th>
+				<th ">return_date</th>
+				<th ">Actions</th>  <!--  Actions column -->
+			</tr>
+
+		</thead>
+		{% for loan in loans %}
+		<tbody>
+			<tr>
+				<!--display all the records-->
+				<td ">{{ loan.loan_id }}</td>
+				<td ">{{ loan.book_id }}</td>
+				<td ">{{ loan.borrower_id }}</td>
+				<td ">{{ loan.loan_date }}</td>
+				<td ">{{ loan.due_date }}</td>
+				<td ">
+					{% if loan.return_date %}
+					{{ loan.return_date }}
+					{% else %}
+					<span>Not Returned</span>
+					{% endif %}
+				</td>
+				<td class="action-cell">
+
+
+
+					<!-- delete button and edit button-->
+					<a href="{{ url_for('loans.edit_loan', loan_id=loan.loan_id) }}">Edit</a>
+
+
+					<a href="{{ url_for('loans.confirm_delete', loan_id=loan.loan_id) }}">Delete</a>
+				</td>
+
+
+
+
+
+
+			</tr>
+			{% endfor %}
+		</tbody>
+
+
+
+
+	</table>
+
+
+
+	<div>
+		<!--Create new loan  button-->
+		<a class="add-loan" href="{{ url_for('loans.create_loans') }}">Add New Loan</a>
+	</div>
+
+
+
+
+</div>
+</div>
+</div>
+{% endblock %}
