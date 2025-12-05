@@ -1,21 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <!-- see https://github.com/soopyc/ascnsa-group/tree/ast20401 for source. -->
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/static/app.css" />
-		{% block head %}{% endblock %}
-	</head>
-	<body>
-		<!-- TODO: add navbar here. also turn the stupid ai agent off -->
-		<div class="content">
-			{% block body %}
-				<p class="fatal-error">BUG: missing body block in template.</p>
-			{% endblock %}
-		</div>
-
-		<hr />
-		<p><i>Page rendered in {{ processing_ms }}ms.</i></p>
-	</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/static/app.css" />
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <!-- TODO: add navbar here. also turn the stupid ai agent off -->
+        <div class="content">
+            {% block body %}<p class="fatal-error">BUG: missing body block in template.</p>{% endblock %}
+        </div>
+        <hr />
+        <p>
+            <i>Page rendered in {{ processing_ms }}ms.</i>
+        </p>
+    </body>
 </html>
