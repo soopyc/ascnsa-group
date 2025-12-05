@@ -1,25 +1,20 @@
 {% extends "base.html" %}
-
 {% block title %}Confirm Delete{% endblock %}
-
 {% block body %}
-<div class="confirmation-box">
-    <h2>Confirm Deletion</h2>
-    
-    <p>Are you sure you want to delete Loan #{{ loan.loan_id }}?</p>
-   
-    <!--delete button -->
-    <form action="/loans/{{ loan.loan_id }}/delete" method="POST">
-        <button type="submit" style="background: red; color: white; padding: 10px 20px;">
-            Yes, Delete
-        </button>
-        
-        <a href="{{ url_for('loans.show_loans') }}" 
-           style="background: gray; color: white; padding: 10px 20px; text-decoration: none;">
-            Cancel
-        </a>
-    </form>
-</div>
+    <div class="confirmation-box">
+        <h2>Confirm Deletion</h2>
+        <p>Are you sure you want to delete Loan #{{ loan.loan_id }}?</p>
+        <!--delete button -->
+        <form action="/loans/{{ loan.loan_id }}/delete" method="POST">
+            <button type="submit"
+                    style="background: red;
+                           color: white;
+                           padding: 10px 20px">Yes, Delete</button>
+            <a href="{{ url_for('loans.show_loans') }}"
+               style="background: gray;
+                      color: white;
+                      padding: 10px 20px;
+                      text-decoration: none">Cancel</a>
+        </form>
+    </div>
 {% endblock %}
-
-

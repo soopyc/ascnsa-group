@@ -1,9 +1,7 @@
 {% extends "base.html" %}
-
 {% block title %}Home - Library Management System{% endblock %}
-
 {% block extra_css %}
-<style>
+    <style>
 	.section {
 		background: linear-gradient(#667eea 0%);
 		color: white;
@@ -70,25 +68,22 @@
 				font-weight: bold;
 				margin-right: 8px;
 			}
-</style>
+    </style>
 {% endblock %}
-
 {% block body %}
-<section class="section">
-	<h1 class="title">Welcome to Library Management System!</h1>
-	<h2 class="subtitle">Tools for handling library operations</h2>
-</section>
-
-<div class="curtain">
-	<h3 class="header">Hello, system administrator</h3>
-	<p class="content">Let's use the navbar to explore the functions.</p>
-</div>
-
-<div class="features">
-	<h3 class="header">What functions we support</h3>
-	<p class="content">Creating a new book or borrower.</p>
-	<p class="content">Reading book or loan details.</p>
-	<p class="content">Updating book availability or loan status.</p>
-	<p class="content">Deleting a loan record.</p>
-</div>
+    <section class="section">
+        <h1 class="title">Welcome to Library Management System!</h1>
+        <h2 class="subtitle">Tools for handling library operations</h2>
+    </section>
+    <div class="curtain">
+        <h3 class="header">Hello, system administrator</h3>
+        <p class="content">Let's use the navbar to explore the functions.</p>
+    </div>
+    <div class="features">
+        <h3 class="header">What functions we support</h3>
+        <p class="content">Creating a new book or borrower.</p>
+        <p class="content">Reading book or loan details.</p>
+        <p class="content">Updating book availability or loan status.</p>
+        <p class="content">Deleting a loan record.</p>
+    </div>
 {% endblock %}

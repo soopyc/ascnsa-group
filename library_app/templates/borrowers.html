@@ -1,12 +1,8 @@
 {% extends "base.html" %}
-
 {% block title %}Borrowers{% endblock %}
-
 {% block body %}
-<h1>Borrowers</h1>
-
-
-<style>
+    <h1>Borrowers</h1>
+    <style>
 	table {
 		table-layout: fixed;
 		width: 100%;
@@ -28,40 +24,42 @@
 			width: 120px;
 			white-space: nowrap;
 		}
-</style>
-
-<form method="get" action="{{ url_for('borrowers.list_borrowers') }}">
-	<input type="text" name="q" value="{{ q }}" placeholder="Search borrowers..." />
-	<button type="submit">Search</button>
-</form>
-
-<a href="{{ url_for('borrowers.new_borrower_form') }}">Add New Borrower</a>
-
-<table border="1">
-	<thead>
-		<tr>
-			<th>ID</th>
-			<th>Name</th>
-			<th>Email</th>
-			<th>Registered</th>
-			<th>Actions</th>
-		</tr>
-	</thead>
-	<tbody>
-		{% for b in borrowers %}
-		<tr>
-			<td>{{ b.borrower_id }}</td>
-			<td>{{ b.first_name }} {{ b.last_name }}</td>
-			<td class="email-cell">{{ b.email }}</td>
-			<td class="registered-cell">{{ b.registration_date }}</td>
-			<td>
-				<a href="{{ url_for('borrowers.edit_borrower_form', borrower_id=b.borrower_id) }}">Edit</a>
-				<form method="post" action="{{ url_for('borrowers.delete_borrower', borrower_id=b.borrower_id) }}" style="display:inline;">
-					<button type="submit">Delete</button>
-				</form>
-			</td>
-		</tr>
-		{% endfor %}
-	</tbody>
-</table>
+    </style>
+    <form method="get" action="{{ url_for('borrowers.list_borrowers') }}">
+        <input type="text"
+               name="q"
+               value="{{ q }}"
+               placeholder="Search borrowers..." />
+        <button type="submit">Search</button>
+    </form>
+    <a href="{{ url_for('borrowers.new_borrower_form') }}">Add New Borrower</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Registered</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for b in borrowers %}
+                <tr>
+                    <td>{{ b.borrower_id }}</td>
+                    <td>{{ b.first_name }} {{ b.last_name }}</td>
+                    <td class="email-cell">{{ b.email }}</td>
+                    <td class="registered-cell">{{ b.registration_date }}</td>
+                    <td>
+                        <a href="{{ url_for('borrowers.edit_borrower_form', borrower_id=b.borrower_id) }}">Edit</a>
+                        <form method="post"
+                              action="{{ url_for('borrowers.delete_borrower', borrower_id=b.borrower_id) }}"
+                              style="display:inline">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

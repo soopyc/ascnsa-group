@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <!-- see https://github.com/soopyc/ascnsa-group/tree/ast20401 for source. -->
 <html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="/static/app.css" />
-	<title>{% block title %}Library Management System{% endblock %}</title>
-	<style>
-
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/static/app.css" />
+        <title>
+            {% block title %}Library Management System{% endblock %}
+        </title>
+        <style>
 		.container {
 			max-width: 1200px;
 			margin: 0 auto;
@@ -69,50 +70,42 @@
 		.content {
 			padding-top: 60px;
 		}
-	</style>
-	{% block extra_css %}
-	{% endblock %}
-</head>
-<body>
-	<!-- TODO: add navbar here. also turn the stupid ai agent off -->
-
-
-
-
-	<div class="container">
-
-		<!--navbar-->
-		<ul class="navlist">
-			<li class="btli"><a href="/"> HOME</a></li>
-			<li class="btli"><a href="/books"> BOOKS</a></li><!--Read book details and create books-->
-			<li class="btli"><a href="/borrowers">BORROWERS </a></li><!--Create borrowers-->
-			<li class="btli"><a href="/loans"> LOANS</a></li><!--Read,delete loans details and update loans status-->
-
-
-		</ul>
-		<div>
-			<a href="/search"></a>
-			<a href="/settings"></a>
-
-			<!-- turn off ai agent -->
-
-		</div>
-	</div>
-
-
-
-
-	<div class="content">
-		{% block body %}
-		<!--<p class="fatal-error">BUG: missing body block in template.</p>-->
-		{% endblock %}
-	</div>
-
-
-	<hr />
-	<p><i>Page rendered in {{ processing_ms }}ms.</i></p>
-
-
-
-</body>
+        </style>
+        {% block extra_css %}{% endblock %}
+    </head>
+    <body>
+        <!-- TODO: add navbar here. also turn the stupid ai agent off -->
+        <div class="container">
+            <!--navbar-->
+            <ul class="navlist">
+                <li class="btli">
+                    <a href="/">HOME</a>
+                </li>
+                <li class="btli">
+                    <a href="/books">BOOKS</a>
+                </li>
+                <!--Read book details and create books-->
+                <li class="btli">
+                    <a href="/borrowers">BORROWERS</a>
+                </li>
+                <!--Create borrowers-->
+                <li class="btli">
+                    <a href="/loans">LOANS</a>
+                </li>
+                <!--Read,delete loans details and update loans status-->
+            </ul>
+            <div>
+                <a href="/search"></a>
+                <a href="/settings"></a>
+                <!-- turn off ai agent -->
+            </div>
+        </div>
+        <div class="content">
+            {% block body %}<!--<p class="fatal-error">BUG: missing body block in template.</p>-->{% endblock %}
+        </div>
+        <hr />
+        <p>
+            <i>Page rendered in {{ processing_ms }}ms.</i>
+        </p>
+    </body>
 </html>

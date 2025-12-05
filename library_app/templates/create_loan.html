@@ -1,32 +1,15 @@
 {% extends "base.html" %}
-
-{% block title %} loans{% endblock %}
-
-
+{% block title %}loans{% endblock %}
 {% block body %}
-
-          
-      
-<form action="{{ url_for('loans.create_loans') }}" method="POST">
-    <h2>Add new loan</h2>
-    <!-- get user input -->
-    <label>Books ID：</label>
-    <input type="number" name="book_id" required>
-    
-    <label>Borrowers ID ：</label>
-    <input type="number" name="borrower_id" required>
-
-
-    <!--button design here-->
-    <button type="submit">Submit</button>
-    <a href="/loans">Back</a>
-</form>
-        
-    
-
+    <form action="{{ url_for('loans.create_loans') }}" method="POST">
+        <h2>Add new loan</h2>
+        <!-- get user input -->
+        <label>Books ID：</label>
+        <input type="number" name="book_id" required>
+        <label>Borrowers ID ：</label>
+        <input type="number" name="borrower_id" required>
+        <!--button design here-->
+        <button type="submit">Submit</button>
+        <a href="/loans">Back</a>
+    </form>
 {% endblock %}
-
-
-
-    
-   
