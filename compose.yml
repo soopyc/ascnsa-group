@@ -11,6 +11,10 @@ services:
       MARIADB_RANDOM_ROOT_PASSWORD: true
     ports:
        - 3306:3306
+    healthcheck:
+      test: ["CMD", "mariadb-admin", "ping", "-u", "user", "-puserresu"]
+      timeout: 2s
+      retries: 60
   app:
     build: .
     environment:
@@ -18,6 +22,10 @@ services:
       DB_HOST: db
       DB_USER: user
       DB_PASSWORD: userresu
+    depends_on:
+      db:
+        condition: service_healthy
+
     ports:
       - 8000:8000
 
