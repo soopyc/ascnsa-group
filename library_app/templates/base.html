@@ -101,11 +101,14 @@
             </div>
         </div>
         <div class="content">
-            {% block body %}<!--<p class="fatal-error">BUG: missing body block in template.</p>-->{% endblock %}
+            {% block body %}<p class="fatal-error">BUG: missing body block in template.</p>{% endblock %}
         </div>
         <hr />
         <p>
             <i>Page rendered in {{ processing_ms }}ms.</i>
+        </p>
+        <p>
+            <i>Connection ID: {{ connection_id }}</i>
         </p>
     </body>
 </html>

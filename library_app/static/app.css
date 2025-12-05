@@ -30,16 +30,16 @@ h6
 
 .fatal-error {
 	animation: 2s infinite 0s normal fatal-error;
-	border: 2px solid red;
-	padding: 1em;
+	border: 5px solid red;
+	padding: 0.5em;
 }
 
 @keyframes fatal-error {
 	0%, 49.9999% {
-		border-color: rgba(0, 0, 0, 0);
+		border-color: red;
 	}
 
 	50%, 100% {
-		border-color: red;
+		border-color: rgba(0, 0, 0, 0);
 	}
 }

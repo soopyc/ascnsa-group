@@ -50,7 +50,6 @@ def edit_loan(loan_id):
 # update loans
 @blueprint.route("/loans/<int:loan_id>/update", methods=["POST"])
 def update_loan(loan_id):
-
 	book_id = request.form["book_id"]
 	borrower_id = request.form["borrower_id"]
 	loan_date = request.form["loan_date"]

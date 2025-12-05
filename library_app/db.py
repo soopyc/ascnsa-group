@@ -1,9 +1,12 @@
 import contextlib
 import os
 from typing import Optional
+from logging import getLogger
 
 from mysql.connector import connect
 from mysql.connector.pooling import PooledMySQLConnection
+
+_logger = getLogger("db")
 
 
 def _get_env(name: str, default: Optional[str] = None):
@@ -23,7 +26,7 @@ _dbconfig = {
 	"port": int(_get_env("DB_PORT", "3306")),
 }
 
-_db = connect(pool_name="main_pool", **_dbconfig)
+_ = connect(pool_name="main_pool", **_dbconfig)
 
 
 @contextlib.contextmanager
@@ -41,23 +44,28 @@ def connection():
 				conn.commit()
 	"""
 
+	_logger.debug("trying to use connection pool main_pool")
 	conn = connect(pool_name="main_pool")
 	if type(conn) is not PooledMySQLConnection:
 		raise RuntimeError(
 			f"expected pooled connection from connect(), got {type(conn)}"
 		)
 	conn.start_transaction()
+	_logger.debug("transaction begun")
 
 	try:
 		yield conn
 	except Exception as e:
+		_logger.debug("rolling back transaction due to exception")
 		conn.rollback()
 		raise e
 	finally:
 		if conn.is_connected:
 			if conn.in_transaction:
+				_logger.debug("rolling back uncommitted transaction")
 				conn.rollback()
 			conn.close()
+			_logger.debug("closed db connection at end")
 
 
 __all__ = connection

@@ -102,7 +102,6 @@
                                 <td>{{ book.authors or 'No authors' }}</td>
                                 <td>
                                     <a href="{{ url_for('books.books_edit', book_id=book.book_id) }}">Edit</a>
-
                                     <form action="{{ url_for('books.books_delete', book_id=book.book_id) }}"
                                           method="POST"
                                           style="display:inline"
