@@ -3,35 +3,79 @@
 {% block body %}
     <h1>Borrowers</h1>
     <style>
+	.action-cell {
+		min-width: 150px;
+	}
+
+	table * {
+		padding: 20px;
+		text-align: center;
+		
+	}
+
+	table td, table th {
+		border: 2px solid black;
+
+	}
+
 	table {
-		table-layout: fixed;
-		width: 100%;
+		margin-top: 30px;
+		margin-bottom: 5px;
+		border: 2px solid black;
+		border-collapse: collapse;
+		margin-top: 10px;
 	}
 
-	th, td {
-		padding: 8px;
-		text-align: left;
+	.search-form {
+		margin-bottom: 10px
 	}
 
-		td.email-cell {
-			max-width: 250px;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
+	.search-input {
+		padding: 5px 20px;
+		font-size: 0.3em;
+		min-width: 220px;
+		margin-right: 10px;
+		margin-top: 10px;
+	}
+
+	.search-btn {
+		padding: 5px 10px;
+		border-radius: 5px;
+		border: none;
+		background-color: rgb(0, 191, 255);
+		color: white;
+	}
+
+		.search-btn:hover {
+			cursor: pointer;
+			background-color: rgba(0, 191, 255, 0.8);
 		}
 
-		td.registered-cell {
-			width: 120px;
-			white-space: nowrap;
+		.search-btn:active {
+			cursor: pointer;
+			background-color: rgba(0, 191, 255, 0.6);
 		}
+
+	.search-btn {
+		background-color: rgba(0, 191, 255);
+	}
+
+	.add-loan:hover {
+		text-decoration: underline;
+	}
     </style>
-    <form method="get" action="{{ url_for('borrowers.list_borrowers') }}">
-        <input type="text"
-               name="q"
-               value="{{ q }}"
-               placeholder="Search borrowers..." />
-        <button type="submit">Search</button>
-    </form>
+    <div class=""search-box"">
+        <form class="search-form"
+              method="get"
+              action="{{ url_for('borrowers.list_borrowers') }}">
+            <input type="text"
+                   class="search-input"
+                   name="q"
+                   value="{{ q }}"
+                   placeholder="Search borrowers..." />
+            <button type="submit"class="search-btn">Search</button>
+        </form>
+    </div>
     <a href="{{ url_for('borrowers.new_borrower_form') }}">Add New Borrower</a>
     <table border="1">
         <thead>

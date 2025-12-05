@@ -2,16 +2,68 @@
 {% block title %}loans{% endblock %}
 {% block extra_css %}
     <style>
-	 .action-cell {
-        min-width: 150px;
-    }
-	
+	.action-cell {
+		min-width: 150px;
+	}
+
+	table * {
+		padding: 20px;
+		text-align: center;
+	}
+
+	table td, table th {
+		border: 2px solid black;
+	}
+
+	table {
+		margin-top: 30px;
+		margin-bottom: 5px;
+		border: 2px solid black;
+		border-collapse: collapse;
+	}
+
+	.search-form {
+		margin-bottom: 10px
+	}
+
+	.search-input {
+		padding: 5px 20px;
+		font-size: 0.3em;
+		min-width: 220px;
+		margin-right: 10px;
+	}
+
+	.search-btn {
+		padding: 5px 10px;
+		border-radius: 5px;
+		border: none;
+		background-color: rgb(0, 191, 255);
+		color: white;
+	}
+
+		.search-btn:hover {
+			cursor: pointer;
+			background-color: rgba(0, 191, 255, 0.8);
+		}
+
+		.search-btn:active {
+			cursor: pointer;
+			background-color: rgba(0, 191, 255, 0.6);
+		}
+
+	.search-btn {
+		background-color: rgba(0, 191, 255);
+	}
+
+	.add-loan:hover {
+		text-decoration: underline;
+	}
     </style>
 {% endblock %}
 {% block body %}
     <!--search box-->
     <div class="container">
-        <h1>Records of Loans</h1>
+        <h1 style="margin-bottom: 10px;">Records of Loans</h1>
         <div class="search-box">
             <form action="/loans" method="GET" class="search-form">
                 <input type="text"
@@ -22,30 +74,28 @@
                 <button type="submit" class="search-btn">Search</button>
             </form>
         </div>
-        <table border = "2";>
+        <table>
             <thead>
                 <!--display the attribubes of table-->
                 <tr style="background-color: #b9b8b8">
-                    <th style="padding: 20px;">loan_id</th>
-                    <th style="padding: 20px;">book_id</th>
-                    <th style="padding: 20px;">borrower_id</th>
-                    <th style="padding: 20px;">loan_date</th>
-                    <th style="padding: 20px;">due_date</th>
-                    <th style="padding: 20px;">return_date</th>
-                    <th style="padding: 20px;">Actions</th>
-                    <!--  Actions column -->
-                </tr>
-            </thead>
-            {% for loan in loans %}
-                <tbody>
-                    <tr>
-                        <!--display all the records-->
-                        <td style="padding: 20px;">{{ loan.loan_id }}</td>
-                        <td style="padding: 20px;">{{ loan.book_id }}</td>
-                        <td style="padding: 20px;">{{ loan.borrower_id }}</td>
-                        <td style="padding: 20px;">{{ loan.loan_date }}</td>
-                        <td style="padding: 20px;">{{ loan.due_date }}</td>
-                        <td style="padding: 20px;">
+                    <th ">loan_id</th>
+                    <th ">book_id</th>
+                    <th ">borrower_id</th>
+                    <th ">loan_date</th>
+                    <th ">due_date</th>
+                    <th ">return_date</th>
+                    <th ">Actions</th>  <!--  Actions column --> </tr>  </thead>
+                {% for loan in loans %}
+                    <tbody> <tr> <!--display all the records-->
+                        <td ">
+                        {{ loan.loan_id }}</td>
+                        <td ">{{ loan.book_id }}</td>
+                        <td ">
+                        {{ loan.borrower_id }}</td>
+                        <td ">{{ loan.loan_date }}</td>
+                        <td ">
+                        {{ loan.due_date }}</td>
+                        <td ">
                             {% if loan.return_date %}
                                 {{ loan.return_date }}
                             {% else %}
@@ -63,9 +113,7 @@
         </table>
         <div>
             <!--Create new loan  button-->
-            <a href="{{ url_for('loans.create_loans') }}">Add New Loan</a>
-            <!-- home button -->
-            <a href="/">Home Page</a>
+            <a class="add-loan" href="{{ url_for('loans.create_loans') }}">Add New Loan</a>
         </div>
     </div>
 </div>
