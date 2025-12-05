@@ -24,6 +24,9 @@ reportUnsupportedDunderAll = false
 [tool.ruff.format]
 indent-style = "tab"
 
+[tool.djlint]
+profile="jinja"
+
 [dependency-groups]
 dev = [
     "ruff>=0.14.7",
