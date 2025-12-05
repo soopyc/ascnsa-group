@@ -1,5 +1,6 @@
 import os
 import uuid
+from traceback import print_exception, format_exception
 from datetime import datetime
 from logging import basicConfig
 from werkzeug.exceptions import HTTPException
@@ -9,7 +10,7 @@ from flask import Flask, g, render_template
 from . import routes
 
 basicConfig(
-	format="[%(asctime)s] %(levelname)s: %(message)s",
+	format="[%(asctime)s %(levelname)s] (%(conn_id)s): %(message)s",
 	level=os.environ.get("LOGGING", "debug").upper(),
 )
 
@@ -37,4 +38,5 @@ def handle_exception(e):
 	if isinstance(e, HTTPException):
 		return e
 
-	return render_template("error.html", error=e)
+	print_exception(e)
+	return render_template("error.html", error=''.join(format_exception(e)))
